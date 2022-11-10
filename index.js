@@ -23,6 +23,12 @@ async function run() {
 
         // for services
 
+        app.post("/services", async (req, res) => {
+            const services = req.body;
+            const results = await serviceCollection.insertOne(services);
+            res.send(results);
+        });
+
         app.get("/services-home", async (req, res) => {
             const query = {};
             const cursor = serviceCollection.find(query).limit(3);
