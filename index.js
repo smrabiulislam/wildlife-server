@@ -60,20 +60,6 @@ async function run() {
             res.send(result);
         });
 
-        // app.get('/reviews', async (req, res) => {
-        //     const query = {}
-        //     const cursor = reviewCollection.find(query);
-        //     const reviews = await cursor.toArray();
-        //     res.send(reviews);
-        // });
-
-        // app.get('/reviews/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const query = { _id: ObjectId(id) };
-        //     const reviews = await reviewCollection.findOne(query);
-        //     res.send(reviews);
-        // });
-
         app.get("/reviews", async (req, res) => {
             let query = {};
             if (req.query.email) {
@@ -85,13 +71,6 @@ async function run() {
             const reviews = await cursor.toArray();
             res.send(reviews);
         });
-
-        // add review
-        // app.post("/add-review", async (req, res) => {
-        //     const review = req.body;
-        //     const result = await reviewCollection.insertOne(review);
-        //     res.send(result);
-        // });
 
     }
     finally {
